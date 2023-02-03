@@ -26,6 +26,20 @@ void generateBillHeader(char name[50], char date[30])
 	printf("\n----------------------------------------");
 	printf("\n\n");
 }
+
+/*--------Structures----------*/
+struct items{
+	char item[20];
+	float price;
+	int qty;
+};
+struct orders{
+	char customer[50];
+	char date[50];
+	int numOfItems;
+	struct items itm[50];
+};
+
 /**
   * generateBillBody - function to generate the Bill Body
   *
@@ -71,6 +85,9 @@ void generateBillFooter(float total)
 int main()
 {
 	/*----Dash---*/
+	int opt, n;
+	struct orders ord;
+
 	printf("\n\t==========HEAVEN. RESTAURANT==========");
 	printf("\n1.Generate Invoice");
 	printf("\n2.Show All Invoices");
@@ -78,7 +95,21 @@ int main()
 	printf("\n4.Exit\n");
 	printf("\n");
 	printf("\n");
-	printf("Please select your prefered operation\n");
+	printf("Please select your prefered operation");
+	scanf("%d", &opt);
+	fgetc(stdin);
+	switch(opt)
+	{
+		case 1:
+			printf("\nPlease enter the name of the customer:\t");
+			fgets(ord.customer, 50, stdin);
+			ord.customer[strlen(ord.customer)-1] = 0;
+			strcpy(ord.date, __DATE__);
+			printf("\nPlease Enter the number of items:\t");
+			scanf("%d", &n);
+
+	}
+
 
 
 	return (0);
